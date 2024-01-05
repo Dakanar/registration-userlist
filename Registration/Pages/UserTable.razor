@@ -1,0 +1,60 @@
+﻿@page "/UserTable"
+
+<PageTitle>Users</PageTitle>
+
+@code {
+    private List<(string Username, string Email)> users = new List<(string, string)>();
+
+    private void AddUser(string username, string email)
+    {
+        users.Add((username, email));
+    }
+}
+
+<html>
+<head>
+<style>
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+
+<h2>Users Table</h2>
+
+<table>
+  <tr>
+    <th>Name    </th>
+    <th>Email</th>
+  </tr>
+  <tr>
+    <td>John Doe</td>
+    <td>johndoe@example.com</td>
+  </tr>
+  <tr>
+    <td>Jane Smith</td>
+    <td>janesmith@example.com</td>
+  </tr>
+  <tr>
+    <td>Michael Johnson</td>
+    <td>michaeljohnson@example.com</td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+<UserRegistrationForm OnUserRegistered="AddUser" />
